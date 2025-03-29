@@ -1,0 +1,76 @@
+{
+  "compilerOptions": {
+    // Définit les bibliothèques globales incluses pour la compilation.
+    // - "dom" : Types du DOM pour travailler avec le navigateur.
+    // - "dom.iterable" : Types pour les collections itérables du DOM (par exemple, NodeList).
+    // - "esnext" : Les types pour les fonctionnalités JavaScript récentes (async/await, modules ES, etc.).
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    // Permet la compilation de fichiers JavaScript (.js) en plus des fichiers TypeScript (.ts, .tsx).
+    "allowJs": true,
+    // Si activé, TypeScript ne vérifiera pas les types dans les fichiers de déclaration de type (.d.ts).
+    // Cela accélère la compilation, mais avec un risque potentiel de manquer des erreurs.
+    "skipLibCheck": true,
+    // Active toutes les vérifications strictes dans TypeScript pour améliorer la sécurité du code.
+    // Cela comprend des options comme `noImplicitAny`, `strictNullChecks`, etc.
+    "strict": true,
+    // Si activé, TypeScript ne générera pas de fichiers de sortie (pas de fichiers .js).
+    // Utilisé principalement pour vérifier les types sans produire de fichiers JavaScript.
+    "noEmit": true,
+    // Permet d'importer des modules CommonJS (comme `module.exports`) en tant que modules ES6 (avec `import` / `export`).
+    // Cela facilite l'importation de modules Node.js dans des projets TypeScript.
+    "esModuleInterop": true,
+    // Définit le système de modules à utiliser dans le projet. 
+    // "esnext" utilise les modules ECMAScript (import/export) les plus récents.
+    "module": "esnext",
+    // Définir la méthode de résolution des modules. "bundler" est conçu pour fonctionner avec des bundlers modernes comme Webpack.
+    "moduleResolution": "bundler",
+    // Permet d'importer des fichiers JSON comme des modules TypeScript.
+    // Par exemple, vous pouvez importer un fichier JSON en tant qu'objet JavaScript.
+    "resolveJsonModule": true,
+    // Si activé, chaque fichier TypeScript sera vérifié indépendamment, comme si chaque fichier était un module autonome.
+    "isolatedModules": true,
+    // Définit la manière dont JSX (utilisé dans React) est géré dans les fichiers TypeScript.
+    // "preserve" signifie que JSX sera conservé tel quel, et la transformation JSX sera gérée par un outil comme Babel.
+    "jsx": "preserve",
+    // Active la compilation incrémentielle, ce qui permet d'améliorer les performances de compilation sur les builds suivants.
+    "incremental": true,
+    // Définit la base à partir de laquelle les modules seront résolus. Ici, cela signifie que la racine du projet est utilisée pour résoudre les modules.
+    "baseUrl": ".",
+    // Spécifie des plugins à utiliser avec TypeScript. Ici, le plugin "next" est utilisé pour intégrer des optimisations spécifiques à Next.js.
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    // Définition d'alias pour les chemins d'importation. 
+    // Cela permet d'utiliser un alias au lieu de chemins relatifs longs, simplifiant les importations dans le code.
+    // Exemple : `@/src/components` au lieu de `../../src/components`.
+    "paths": {
+      "@/*": [
+        "./*"
+      ], // "@" est un alias pour le dossier "src".
+      "contentlayer/generated": [
+        "./.contentlayer/generated"
+      ] // Alias pour accéder aux fichiers générés par Contentlayer.
+    },
+    "target": "ES2017"
+  },
+  // Liste des fichiers ou répertoires à inclure dans la compilation TypeScript.
+  // TypeScript compile tous les fichiers spécifiés ici.
+  "include": [
+    "next-env.d.ts", // Inclut les types spécifiques à Next.js.
+    "**/*.ts", // Inclut tous les fichiers TypeScript (.ts).
+    "**/*.tsx", // Inclut tous les fichiers TypeScript avec JSX (.tsx).
+    ".next/types/**/*.ts", // Inclut les types générés dans le dossier .next.
+    "src/config/site.config.mjs" // Inclut un fichier de configuration spécifique, ici un fichier MJS.
+  ],
+  // Liste des fichiers ou répertoires à exclure de la compilation TypeScript.
+  // TypeScript ignore ces fichiers lors de la compilation.
+  "exclude": [
+    "node_modules" // Exclut le dossier node_modules, qui contient les dépendances du projet.
+  ]
+}

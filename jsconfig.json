@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",  // Définit la racine du projet comme point de départ
+    "paths": {
+      "@/*": ["./app/*"]  // Alias @ pointe vers la racine du projet
+    },
+    "jsx": "react"  // Active la prise en charge de JSX (pour les fichiers .jsx et .tsx)
+  }
+}
