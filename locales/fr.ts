@@ -23,19 +23,19 @@ export default {
       title: "Développement d'Applications Mobiles",
       subtitle: "Des Applications Mobiles Innovantes & Sur-Mesure",
       description: "Nous créons des applications mobiles performantes et personnalisées pour améliorer l'expérience utilisateur et répondre aux besoins spécifiques de chaque entreprise. Nos solutions sont optimisées pour garantir une expérience fluide et efficace.",
-      en_savoir_plus: "En savoir plus"
+      en_savoir_plus: "En savoir "
     },
     SwiperSlide2: {
       title: "Design Graphique et UX/UI",
       subtitle: "Un Design Attractif et Fonctionnel",
       description: "Nous offrons des services de design graphique et UX/UI pour vous aider à créer une interface utilisateur intuitive et agréable. Notre approche met l'accent sur l'expérience utilisateur et le design esthétique pour maximiser l'impact de votre présence en ligne.",
-      en_savoir_plus: "En savoir plus"
+      en_savoir_plus: "En savoir "
     },
     SwiperSlide3: {
       title: "Marketing Digital et Gestion des Réseaux Sociaux",
       subtitle: "Optimisez Votre Visibilité en Ligne",
       description: "Nous proposons des stratégies de marketing digital et gérons vos réseaux sociaux pour augmenter votre visibilité en ligne. De la gestion de contenu à la publicité ciblée, nous mettons en œuvre des solutions pour booster votre performance digitale et atteindre vos objectifs.",
-      en_savoir_plus: "En savoir plus"
+      en_savoir_plus: "En savoir "
     },
     SwiperSlide4: {
       title: "Création de Sites Web",
