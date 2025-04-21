@@ -1,19 +1,19 @@
 "use client"
 import SEO from "@/components/data/seo";
-import HeaderOne from "@/components/layout/headers/header/header-one";
 import BreadCrumb from "../common/breadcrumb";
 import AboutMain from "./about";
-import FooterOne from "@/components/layout/footers/footer-one";
 import ScrollToTop from "../common/scroll/scroll-to-top";
+import HeaderTwo from "@/components/layout/headers/header/header-two";
+import FooterTwo from "@/components/layout/footers/footer-two";
 
 const AboutUs = () => {
     return (
       <>
         <SEO pageTitle="À propos de nous" />
-        <HeaderOne />
+        <HeaderTwo />
         <BreadCrumb title="À propos de nous" innerTitle="À propos de nous" />
         <AboutMain />
-        <FooterOne />        
+        <FooterTwo />        
         <ScrollToTop />
       </>
     );

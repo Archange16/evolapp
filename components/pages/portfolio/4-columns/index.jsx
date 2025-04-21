@@ -1,21 +1,21 @@
 "use client"
 import SEO from "@/components/data/seo";
-import HeaderOne from "@/components/layout/headers/header-one";
 import BreadCrumb from "../../common/breadcrumb";
-import FooterOne from "@/components/layout/footers/footer-one";
 import FourColumns from "./four-columns";
 import ScrollToTop from "../../common/scroll/scroll-to-top";
 import SwitchTab from "../../common/dark-light";
+import HeaderTwo from "@/components/layout/headers/header/header-two";
+import FooterTwo from "@/components/layout/footers/footer-two";
 
 const PortfolioFourColumns = () => {
     return (
         <>
             <SEO pageTitle='Portfolio Grid - 04 Columns' />
             <SwitchTab />
-            <HeaderOne />
+            <HeaderTwo />
             <BreadCrumb title="04 Columns" innerTitle="Portfolio Grid" />
             <FourColumns />        
-            <FooterOne />     
+            <FooterTwo />     
             <ScrollToTop />     
         </>
     );
