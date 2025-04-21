@@ -5684,12 +5684,15 @@ Responsive Menu Css
 }
 .services__five-single-service {
   background: var(--bg-white);
-  padding: 40px 30px 40px 30px;
+  /* padding: 40px 30px 40px 30px; */
   border-radius: 8px;
   box-shadow: 0px 6px 60px 0px rgba(0, 0, 0, 0.05);
   border-radius: 20px;
   transition: 0.4s;
   border-bottom: 4px solid var(--primary-color-1);
+}
+.services__five-single-service img{
+  border-radius: 20px 20px 0px 0px;
 }
 .services__five-single-service-icon {
   width: 100px;
@@ -5707,6 +5710,9 @@ Responsive Menu Css
   display: inline-block;
   color: var(--primary-color-1);
   transition: 0.4s;
+}
+.services__five-single-service-content{
+  padding: 40px 30px 40px 30px; 
 }
 .services__five-single-service-content h4 {
   font-size: 22px;
