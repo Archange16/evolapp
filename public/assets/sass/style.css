@@ -10185,6 +10185,7 @@ Responsive Menu Css
   transition: 0.4s;
   width: 90%;
 }
+
 .footer__one-widget-location-item-info a:hover {
   color: var(--primary-color-1);
 }

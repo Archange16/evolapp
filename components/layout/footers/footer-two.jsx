@@ -24,7 +24,7 @@ const FooterTwo = () => {
                                     </div>
                                     <div className="call-box-item-info">
                                         <span>Contactez nos experts</span>
-                                        <Link href="tel:(307)555-0133">(307) 555-0133</Link>
+                                        <Link href="tel:(307)555-0133">(+212) 06 47 810243</Link>
                                     </div>
                                 </div>
                             </div>
@@ -56,7 +56,7 @@ const FooterTwo = () => {
                                 <ul>
                                     {servicesData.slice(0, 4).map((data, id) => {
                                         const words = data.title.split(' ');
-                                        const firstAndSecondWord = words.slice(0, 2).join(' ');
+                                        const firstAndSecondWord = words.slice(0, 5).join(' ');
                                         return (
                                             <li key={id}><Link href={`/services/${data.id}`}><i className="far fa-chevron-double-right"></i>{firstAndSecondWord}</Link></li>
                                         );
@@ -75,7 +75,7 @@ const FooterTwo = () => {
                                     </div>
                                     <div className="footer__one-widget-location-item-info email">
                                         <span>Email</span>
-                                        <Link href="mailto:info@votreentreprise.com">info@votreentreprise.com</Link>
+                                        <Link href="mailto:contact@evolapp.com">contact@evolapp.com</Link>
                                     </div>
                                 </div>
                                 <div className="footer__one-widget-location-item">
@@ -84,7 +84,7 @@ const FooterTwo = () => {
                                     </div>
                                     <div className="footer__one-widget-location-item-info">
                                         <span>Adresse</span>
-                                        <Link href="https://google.com/maps">123 Avenue Technologie, Ville Digitale, Votre Pays</Link>
+                                        <Link href="https://google.com/maps">Sidi Ghanem À Côté De L'immeuble D'EBF, Ville de Marrakech, Maroc</Link>
                                     </div>
                                 </div>
                             </div>
@@ -109,7 +109,7 @@ const FooterTwo = () => {
                     <div className="row justify-content-between copyright__one-container-area">
                         <div className="col-xl-5 col-lg-6"> 
                             <div className="copyright__one-left">
-                                <p>© VotreEntreprise 2024 | Tous droits réservés</p>
+                                <p>© Evolapp 2024 | Tous droits réservés</p>
                             </div>
                         </div>
                         <div className="col-xl-5 col-lg-6">

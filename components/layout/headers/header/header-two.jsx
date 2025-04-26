@@ -32,15 +32,15 @@ const HeaderTwo = ({variant}) => {
                         <div className="col-xl-5 col-md-5">
                             <div className="top__bar-right">
                                 <Link href="https://www.google.com/maps">
-                                    <i className="fas fa-map-marker-alt"></i> Brazzaville, République du Congo
+                                    <i className="fas fa-map-marker-alt"></i> Marrakech, Royaume du Maroc
                                 </Link>
                             </div>
                         </div>
                         <div className="col-xl-7 col-md-7">
                             <div className="top__bar-left">
                                 <span><i className="fas fa-clock"></i>Horaires : 08h - 18h</span>
-                                <Link href="mailto:contact@solutionsnumeriques.cg">
-                                    <i className="fas fa-envelope"></i>contact@solutionsnumeriques.cg
+                                <Link href="mailto:contact@evolapp.com">
+                                    <i className="fas fa-envelope"></i>contact@evolapp.com
                                 </Link>
                             </div>
                         </div>
@@ -83,7 +83,7 @@ const HeaderTwo = ({variant}) => {
                                     <i className="flaticon-phone-call"></i>
                                     <div className="header__area-menubar-right-box-help-info">
                                         <span>Appelez-nous</span>
-                                        <Link href="tel:+242061234567">+242 06 123 4567</Link>
+                                        <Link href="tel:+242061234567">(+212) 06 47 810243</Link>
                                     </div>
                                 </div>
 
