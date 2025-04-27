@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay, Navigation } from 'swiper/modules';
-import testimonialBg from "../../../../public/assets/img/testimonial/testimonial-2.png";
+import testimonialBg from "../../../../public/assets/img/testimonial/testimonial-2.webp";
 import quoteIcon from "../../../../public/assets/img/testimonial/testimonial-quote.png";
 import Link from "next/link";
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ModalVideo from "react-modal-video";
-import image1 from "../../../../public/assets/img/skill/skill.png";
-import image2 from "../../../../public/assets/img/skill/skill-video-thumb.png";
+import image1 from "../../../../public/assets/img/skill/skill.webp";
+import image2 from "../../../../public/assets/img/skill/skill-video-thumb.webp";
 
 const SkillArea = () => {
     const [openVideo, setOpenVideo] = useState(false);

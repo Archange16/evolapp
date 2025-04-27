@@ -39,27 +39,27 @@ const ServicesSingleMain = ({firstAndSecondWord}) => {
                             <p>{service.details.subDescription}</p>
     
                             <div className="service__details-content-box">
-                                
-                                <div className="service__details-content-box-single">
-                                    <h4>{}</h4>
-                                    <p>Web designing in a powerful way of just not an only professions, however, in a passion for our Company. We have to a tendency to believe the idea that smart looking of any website</p>
-                                    <ul className="service-qualities">
-                                        <li>IT Support</li>
-                                        <li>Software Development</li>
-                                        <li>Cloud Computing</li>
-                                        <li>IData Analysis</li>
-                                    </ul>
-                                </div>
-
+                                {service.details.boxes.map((box, index) => (
+                                    <div key={index} className="service__details-content-box-single border">
+                                        <h4>{box.title}</h4>
+                                        <p>{box.description}</p>
+                                        <ul className="service-qualities">
+                                            {box.qualities?.map((quality, idx) => (
+                                                <li key={idx}>{quality}</li>
+                                                ))}
+                                        </ul>
+                                    </div>
+                                ))}
                                 <div className="service__details-content-box-single">
                                     <div className="icon">
                                         <img src={image2.src} alt="image" />
                                     </div>
-                                    <h4 className="mb-4">Elevating Businesses through Edge </h4>
-                                    <p className="m-0">Web designing in a powerful way of just not an only professions, however, in a passion for our Company. We have to a tendency to believe the idea that smart looking of any website</p>
+                                    <h4 className="mb-4">{service.details.title1} </h4>
+                                    <p className="m-0">{service.details.description1}</p>
                                 </div>
+
                             </div>
-                            <p>Web designing in a powerful way of just not an only professions, however, in a passion for our Company. We have to a tendency to believe the idea that smart looking of any websitet in on visitors.Web designing in a powerful way of just not an only profession Web designing in a powerful way of just not an only Web designing in a powerful way of just not an only professions, however, in a passion for our Company. We have to a tendency to believe the idea that smart looking of any websitet in on visitors.Web designing in a powerful way of just not an only profession</p>
+                            <p>{service.details.bottomDescription}</p>
                         </div>
                     </div>
                 </div>

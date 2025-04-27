@@ -1,10 +1,62 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import Count from '../../common/count';
 import bgImage from "../../../../public/assets/img/contact/contact-bg.png";
-import image1 from "../../../../public/assets/img/contact/contact.png"; // Je suppose que cette image représente un service
-import image2 from "../../../../public/assets/img/contact/contact-2.jpg"; // Image représentant l'expérience ou la qualité du service
+import image1 from "../../../../public/assets/img/contact/contact.webp";
+import image2 from "../../../../public/assets/img/contact/contact-2.webp";
 
 const ContactForm = () => {
+    const [formData, setFormData] = useState({
+        firstName: '',
+        phone: '',
+        email: ''
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [successMessage, setSuccessMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+
+    const handleChange = (e) => {
+        const { placeholder, value } = e.target;
+
+        if (placeholder.includes("Prénom")) {
+            setFormData(prev => ({ ...prev, firstName: value }));
+        } else if (placeholder.includes("Téléphone")) {
+            setFormData(prev => ({ ...prev, phone: value }));
+        } else if (placeholder.includes("E-mail")) {
+            setFormData(prev => ({ ...prev, email: value }));
+        }
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setSuccessMessage('');
+        setErrorMessage('');
+
+        try {
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await res.json();
+
+            if (res.ok) {
+                setSuccessMessage('Votre message a été envoyé avec succès !');
+                setFormData({ firstName: '', phone: '', email: '' });
+            } else {
+                setErrorMessage(data.message || "Erreur lors de l'envoi du message.");
+            }
+        } catch (error) {
+            console.error(error);
+            setErrorMessage("Erreur de connexion.");
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     return (
         <>
             <div className="contact__one section-padding" style={{backgroundImage: `url(${bgImage.src})`}}>
@@ -15,15 +67,37 @@ const ContactForm = () => {
                                 <span className="subtitle-one">Contactez-nous maintenant</span>
                                 <h2>Nous façonnons votre avenir numérique</h2>
                             </div>
-                            <form action="#" className="contact__one-form">
+                            <form onSubmit={handleSubmit} className="contact__one-form">
                                 <div className="contact__one-form-top">
-                                    <input type="text" placeholder="Votre Prénom..." />
-                                    <input type="text" placeholder="Votre Téléphone..." />
+                                    <input 
+                                        type="text" 
+                                        placeholder="Votre Prénom..." 
+                                        value={formData.firstName} 
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                    <input 
+                                        type="text" 
+                                        placeholder="Votre Téléphone..." 
+                                        value={formData.phone} 
+                                        onChange={handleChange}
+                                        required
+                                    />
                                 </div>
-                                <input type="email" placeholder="Votre E-mail..." className="w-100" />
-                                <button type="submit" className="btn-two w-100">Envoyer maintenant
+                                <input 
+                                    type="email" 
+                                    placeholder="Votre E-mail..." 
+                                    value={formData.email} 
+                                    onChange={handleChange}
+                                    className="w-100" 
+                                    required
+                                />
+                                <button type="submit" className="btn-two w-100" disabled={isSubmitting}>
+                                    {isSubmitting ? 'Envoi en cours...' : 'Envoyer maintenant'}
                                     <i className="fas fa-chevron-right"></i>
                                 </button>
+                                {successMessage && <p style={{ color: "green", marginTop: "10px" }}>{successMessage}</p>}
+                                {errorMessage && <p style={{ color: "red", marginTop: "10px" }}>{errorMessage}</p>}
                             </form>
                         </div>
                         <div className="col-xl-5">

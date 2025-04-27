@@ -1,5 +1,5 @@
-import image1 from "../../../../public/assets/img/about/about-two.png";
-import image2 from "../../../../public/assets/img/about/about-two-2.png";
+import image1 from "../../../../public/assets/img/about/about-two.webp";
+import image2 from "../../../../public/assets/img/about/about-two-2.webp";
 import Link from "next/link";
 
 const AboutTwo = () => {

@@ -1,4 +1,9 @@
-import services1 from "../../public/assets/img/service/service-details.png";
+import services1 from "../../public/assets/img/service/service-graphique.webp";
+import services2 from "../../public/assets/img/service/service-mobile.webp";
+import services3 from "../../public/assets/img/service/service-graphique (1).webp";
+import services4 from "../../public/assets/img/service/service-graphique (4).webp";
+import services5 from "../../public/assets/img/service/service-details.png";
+import services6 from "../../public/assets/img/service/service-api.webp";
 
 const servicesData = [
     {
@@ -22,12 +27,10 @@ const servicesData = [
                         "Back-office personnalisé",
                         "Hébergement & Maintenance"
                     ]
-                },
-                {
-                    title: "Notre engagement",
-                    description: "Vous offrir un site rapide, sécurisé et orienté conversion, prêt à évoluer avec votre activité."
                 }
             ],
+            title1: "Notre engagement",
+            description1: "Vous offrir un site rapide, sécurisé et orienté conversion, prêt à évoluer avec votre activité.",
             bottomDescription: "Confiez-nous la création de votre site pour marquer votre présence digitale de manière professionnelle et durable."
         }
     },
@@ -36,7 +39,7 @@ const servicesData = [
         icon: <i className="flaticon-app"></i>,
         title: 'Développement d’applications mobiles',
         description: 'Applications Android/iOS natives ou hybrides avec interfaces intuitives et gestion de contenu.',
-        image: services1,
+        image: services2,
         details: {
             title: "Vos idées au creux de la main",
             description: "Nous développons des applications mobiles performantes et intuitives pour Android et iOS adaptées à votre activité.",
@@ -52,12 +55,10 @@ const servicesData = [
                         "Maintenance et évolutivité",
                         "UI/UX mobile friendly"
                     ]
-                },
-                {
-                    title: "Notre promesse",
-                    description: "Une application stable, rapide et conviviale qui dynamise votre croissance."
                 }
             ],
+            title1: "Notre promesse",
+            description1: "Une application stable, rapide et conviviale qui dynamise votre croissance.",
             bottomDescription: "Faites le choix de la mobilité pour connecter votre entreprise à vos utilisateurs partout et à tout moment."
         }
     },
@@ -66,7 +67,7 @@ const servicesData = [
         icon: <i className="flaticon-design"></i>,
         title: 'Design graphique & UX/UI',
         description: 'Création de logos, chartes graphiques, supports de communication et maquettes UI/UX.',
-        image: services1,
+        image: services3,
         details: {
             title: "Donnez du style à votre image",
             description: "Nous créons des identités visuelles et expériences utilisateurs qui marquent les esprits et fidélisent vos clients.",
@@ -82,12 +83,10 @@ const servicesData = [
                         "Maquettes web et mobile",
                         "Supports publicitaires"
                     ]
-                },
-                {
-                    title: "Notre valeur ajoutée",
-                    description: "Associer esthétique et ergonomie pour offrir la meilleure expérience utilisateur."
                 }
             ],
+            title1: "Notre valeur ajoutée",
+            description1: "Associer esthétique et ergonomie pour offrir la meilleure expérience utilisateur.",
             bottomDescription: "Bénéficiez d’un design professionnel qui fait la différence et propulse votre image de marque."
         }
     },
@@ -96,7 +95,7 @@ const servicesData = [
         icon: <i className="flaticon-marketing"></i>,
         title: 'Marketing digital & réseaux sociaux',
         description: 'Création de contenu, gestion des réseaux, campagnes publicitaires et stratégie digitale.',
-        image: services1,
+        image: services4,
         details: {
             title: "Faites rayonner votre marque",
             description: "Nous boostons votre présence en ligne avec des stratégies marketing adaptées et du contenu impactant.",
@@ -112,12 +111,10 @@ const servicesData = [
                         "Content marketing",
                         "Stratégie SEO et SEA"
                     ]
-                },
-                {
-                    title: "Votre succès est notre mission",
-                    description: "Construisons ensemble votre visibilité et votre notoriété digitale."
                 }
             ],
+            title1: "Votre succès est notre mission",
+            description1: "Construisons ensemble votre visibilité et votre notoriété digitale.",
             bottomDescription: "Augmentez votre chiffre d’affaires en renforçant votre présence et votre engagement en ligne."
         }
     },
@@ -126,7 +123,7 @@ const servicesData = [
         icon: <i className="flaticon-artificial-intelligence"></i>,
         title: 'Intégration d’agents IA',
         description: 'Ajout d’agents IA et APIs intelligentes dans vos projets : santé, sport, resto, transport, etc.',
-        image: services1,
+        image: services5,
         details: {
             title: "Boostez votre projet avec l'Intelligence Artificielle",
             description: "Nous intégrons des agents IA et APIs intelligentes pour automatiser vos process et améliorer vos performances.",
@@ -142,12 +139,10 @@ const servicesData = [
                         "Analyse prédictive",
                         "Vision par ordinateur"
                     ]
-                },
-                {
-                    title: "L’innovation accessible",
-                    description: "Nous rendons l'IA accessible à toutes les entreprises, quel que soit leur secteur d’activité."
                 }
             ],
+            title1: "L’innovation accessible",
+            description1: "Nous rendons l'IA accessible à toutes les entreprises, quel que soit leur secteur d’activité.",
             bottomDescription: "Donnez à votre projet une dimension d’innovation avec nos solutions IA sur mesure."
         }
     },
@@ -156,7 +151,7 @@ const servicesData = [
         icon: <i className="flaticon-code"></i>,
         title: 'Développement d’APIs',
         description: 'Intégration d’APIs Node.js, C#, ou Spring Boot pour connecter et enrichir vos services.',
-        image: services1,
+        image: services6,
         details: {
             title: "Connectez vos services efficacement",
             description: "Nous concevons et développons des APIs performantes pour enrichir vos systèmes et faciliter vos échanges de données.",
@@ -172,12 +167,10 @@ const servicesData = [
                         "Spring Boot Java",
                         "Authentification OAuth2"
                     ]
-                },
-                {
-                    title: "Notre objectif",
-                    description: "Simplifier vos intégrations et booster la connectivité de vos services."
                 }
             ],
+            title1: "Notre objectif",
+            description1: "Simplifier vos intégrations et booster la connectivité de vos services.",
             bottomDescription: "Ouvrez de nouvelles perspectives pour vos systèmes grâce à des APIs sur mesure adaptées à vos besoins."
         }
     },
