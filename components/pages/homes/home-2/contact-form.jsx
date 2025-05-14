@@ -35,7 +35,7 @@ const ContactForm = () => {
         setErrorMessage('');
 
         try {
-            const res = await fetch('/api/contact', {
+            const res = await fetch('/api/contact-accueil', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
