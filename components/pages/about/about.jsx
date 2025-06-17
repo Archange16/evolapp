@@ -68,7 +68,7 @@ const AboutMain = () => {
             </div>
         </div>
 
-        <div className="brand__area section-padding pt-0">
+       {/*  <div className="brand__area section-padding pt-0">
             <div className="container">
                 <div className="row">
                     <div className="col-xl-12">
@@ -93,10 +93,10 @@ const AboutMain = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> */}
 
-        <WorkArea />
-        <Testimonial />
+       {/*  <WorkArea />
+        <Testimonial /> */}
         </>
     );
 };
