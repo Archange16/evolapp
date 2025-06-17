@@ -43,7 +43,7 @@ const FooterTwo = () => {
                                 <Link href="/"><img src={logo.src} alt="Logo" /></Link>
                                 <p>Nous transformons les entreprises grâce à des solutions digitales innovantes, des systèmes de paiement et des conseils en architecture et immobilier.</p>
                                 <div className="footer__one-widget-about-social">
-                                    <h4>Suivez-nous</h4>  
+                                    <h4>Suivez-nous</h4>
                                     <Social />
                                 </div>
                             </div>
