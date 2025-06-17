@@ -12,9 +12,10 @@ import WhatsappLive from "@/components/layout/footers/whatsappLive";
 const ServicePage = () => {
     return (
         <>
-            <SEO pageTitle="Nos services" />
+
+            <SEO pageTitle="Nos Services" />
             <HeaderTwo />
-            <BreadCrumb title="Nos services" innerTitle="Nos services" />
+            <BreadCrumb title="Nos Services" innerTitle="Nos Services" />
             <ServicesMain />
             <WorkArea />
             <Testimonial />
