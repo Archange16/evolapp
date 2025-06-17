@@ -60,14 +60,14 @@ const ResponsiveMenu = () => {
                     </ul>
                     <a className={`mean-expand ${activeIcon("project")}`} onClick={() => active("project")}></a> */}
                 </li>
-                <li className='menu-item-has-children'><Link href='/blog'>Blog</Link>
-                    {/* <ul className='sub-menu' style={activeSubMenu("blog")}>
+                {/* <li className='menu-item-has-children'><Link href='/blog'>Blog</Link>
+                    <ul className='sub-menu' style={activeSubMenu("blog")}>
                         <li><Link href="/blog">Blog Grid</Link></li>
                         <li><Link href="/blog-standard">Blog Standard</Link></li>
                         <li><Link href="/blog/ux-ui-designing-the-future-web-design">Blog Details</Link></li>
                     </ul>
-                    <a className={`mean-expand ${activeIcon("blog")}`} onClick={() => active("blog")}></a> */}
-                </li>
+                    <a className={`mean-expand ${activeIcon("blog")}`} onClick={() => active("blog")}></a>
+                </li> */}
                 <li><Link href="/contact">Contact</Link></li>   
             </ul>  
         </>

@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper/modules';
-import banner1 from "../../../../public/assets/img/banner/banner-two.png";
-import banner2 from "../../../../public/assets/img/banner/banner-two-2.png";
-import banner3 from "../../../../public/assets/img/banner/banner-two-3.png";
+import banner1 from "../../../../public/assets/img/banner/banner-two.webp";
+import banner2 from "../../../../public/assets/img/banner/banner-two-2.webp";
+import banner3 from "../../../../public/assets/img/banner/banner-two-3.webp";
 import shape1 from "../../../../public/assets/img/shape/banner-two-shape-2.png";
 import shape2 from "../../../../public/assets/img/shape/banner-two-shape-3.png";
 import shape3 from "../../../../public/assets/img/shape/banner-two-shape-4.png";
@@ -27,12 +27,12 @@ const BannerTwo = () => {
 					<SwiperSlide>
 						<div className="banner__two-single-slider" style={{ backgroundImage: `url(${banner1.src})` }}>
 							<div className="banner-two-shape">
-								<div className="banner-two-shape-1 shape">
+								{/* <div className="banner-two-shape-1 shape">
 									<img src={shapeContent.src} alt="shape" className="animate-rotate" />
-								</div>
-								<div className="banner-two-shape-2 shape"><img src={shape1.src} alt="image" /></div>
+								</div> */}
+								{/* <div className="banner-two-shape-2 shape"><img src={shape1.src} alt="image" /></div>
 								<div className="banner-two-shape-3 shape"><img src={shape2.src} alt="image" /></div>
-								<div className="banner-two-shape-4 shape"><img src={shape3.src} alt="image" /></div>
+								<div className="banner-two-shape-4 shape"><img src={shape3.src} alt="image" /></div> */}
 							</div>
 							<div className="container">
 								<div className="row">
@@ -51,12 +51,12 @@ const BannerTwo = () => {
 					<SwiperSlide>
 						<div className="banner__two-single-slider" style={{ backgroundImage: `url(${banner2.src})` }}>
 							<div className="banner-two-shape">
-								<div className="banner-two-shape-1 shape">
+								{/* <div className="banner-two-shape-1 shape">
 									<img src={shapeContent.src} alt="shape" className="animate-rotate" />
-								</div>
-								<div className="banner-two-shape-2 shape"><img src={shape1.src} alt="image" /></div>
+								</div> */}
+								{/* <div className="banner-two-shape-2 shape"><img src={shape1.src} alt="image" /></div>
 								<div className="banner-two-shape-3 shape"><img src={shape2.src} alt="image" /></div>
-								<div className="banner-two-shape-4 shape"><img src={shape3.src} alt="image" /></div>
+								<div className="banner-two-shape-4 shape"><img src={shape3.src} alt="image" /></div> */}
 							</div>
 							<div className="container">
 								<div className="row">
@@ -75,12 +75,12 @@ const BannerTwo = () => {
 					<SwiperSlide>
 						<div className="banner__two-single-slider" style={{ backgroundImage: `url(${banner3.src})` }}>
 							<div className="banner-two-shape">
-								<div className="banner-two-shape-1 shape">
+								{/* <div className="banner-two-shape-1 shape">
 									<img src={shapeContent.src} alt="shape" className="animate-rotate" />
-								</div>
-								<div className="banner-two-shape-2 shape"><img src={shape1.src} alt="image" /></div>
+								</div> */}
+								{/* <div className="banner-two-shape-2 shape"><img src={shape1.src} alt="image" /></div>
 								<div className="banner-two-shape-3 shape"><img src={shape2.src} alt="image" /></div>
-								<div className="banner-two-shape-4 shape"><img src={shape3.src} alt="image" /></div>
+								<div className="banner-two-shape-4 shape"><img src={shape3.src} alt="image" /></div> */}
 							</div>
 							<div className="container">
 								<div className="row">

@@ -44,13 +44,13 @@ const MainMenu = () => {
                         <li><Link href="/portfolio/gateway-integration">Portfolio Details</Link></li>
                     </ul> */}
                 </li>
-                <li className="menu-item-has-children"><Link href="/blog">Blog </Link>
-                    {/* <ul className="sub-menu">
+                {/* <li className="menu-item-has-children"><Link href="/blog">Blog </Link>
+                    <ul className="sub-menu">
                         <li><Link href="/blog">Blog Grid</Link></li>
                         <li><Link href="/blog-standard">Blog Standard</Link></li>
                         <li><Link href="/blog/ux-ui-designing-the-future-web-design">Blog Details</Link></li>
-                    </ul> */}
-                </li>
+                    </ul>
+                </li> */}
                 <li><Link href="/contact">Contact</Link></li>
             </ul>
         </>

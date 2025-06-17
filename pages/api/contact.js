@@ -1,4 +1,3 @@
-// pages/api/contact.js
 import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
@@ -13,21 +12,20 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Configuration du transporteur SMTP
     const transporter = nodemailer.createTransport({
-      host: 'smtp.example.com', // <- Remplace par ton serveur SMTP (ex: smtp.gmail.com)
-      port: 465, // ou 587 selon le serveur
-      secure: true, // true pour 465, false pour 587
+      host: "mail.evolapp.com",
+      port: 465,
+      secure: true,
       auth: {
-        user: process.env.SMTP_USER, // stocké dans .env
+        user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
     });
 
-    // Contenu de l'email
     await transporter.sendMail({
-      from: `"${name}" <${email}>`, // Expéditeur
-      to: 'evolapp10@gmail.com', // À qui envoyer
+      from: `"${name}" <${process.env.SMTP_USER}>`,
+      to: 'evolapp10@gmail.com',
+      replyTo: email,
       subject: subject || 'Nouveau message de formulaire',
       html: `
         <h3>Nouvelle demande de contact</h3>
@@ -41,7 +39,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ message: 'Email envoyé avec succès !' });
   } catch (error) {
-    console.error(error);
+    console.error('Erreur SMTP:', error);
     return res.status(500).json({ message: "Erreur d'envoi de l'email", error: error.message });
   }
 }

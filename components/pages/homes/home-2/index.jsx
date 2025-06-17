@@ -31,7 +31,7 @@ const HomeTwo = () => {
             <ContactForm />
             <WorkProcess />
             <TestimonialTwo />
-            <BlogTwo />
+            {/* <BlogTwo /> */}
             <FooterTwo />
             <WhatsappLive />
             <ScrollToTop />  

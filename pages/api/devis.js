@@ -14,7 +14,7 @@ export default async function handler(req, res) {
 
   try {
     const transporter = nodemailer.createTransport({
-      host: 'smtp.example.com', // Ton serveur SMTP
+      host: 'mail.evolapp.com',
       port: 465,
       secure: true,
       auth: {
@@ -24,7 +24,8 @@ export default async function handler(req, res) {
     });
 
     await transporter.sendMail({
-      from: `"${firstName} ${lastName}" <${email}>`,
+      from: `"${firstName} ${lastName}" <${process.env.SMTP_USER}>`,
+      replyTo: email,
       to: 'evolapp10@gmail.com',
       subject: 'Nouvelle demande de devis',
       html: `
@@ -32,16 +33,16 @@ export default async function handler(req, res) {
         <p><strong>Nom :</strong> ${firstName} ${lastName}</p>
         <p><strong>Email :</strong> ${email}</p>
         <p><strong>Téléphone :</strong> ${phone}</p>
-        ${company && `<p><strong>Entreprise :</strong> ${company}</p>`}
-        ${website && `<p><strong>Site Web :</strong> ${website}</p>`}
-        <p><strong>Services demandés :</strong> ${services.join(', ')}</p>
+        ${company ? `<p><strong>Entreprise :</strong> ${company}</p>` : ''}
+        ${website ? `<p><strong>Site Web :</strong> ${website}</p>` : ''}
+        <p><strong>Services demandés :</strong> ${Array.isArray(services) ? services.join(', ') : 'Non précisé'}</p>
         <p><strong>Message :</strong><br/>${message}</p>
       `,
     });
 
     return res.status(200).json({ message: 'Demande envoyée avec succès !' });
   } catch (error) {
-    console.error(error);
+    console.error('Erreur SMTP:', error);
     return res.status(500).json({ message: "Erreur d'envoi de l'email", error: error.message });
   }
 }

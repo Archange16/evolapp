@@ -9,9 +9,9 @@ import FooterTwo from "@/components/layout/footers/footer-two";
 const PortfolioTowColumns = () => {
     return (
         <>
-            <SEO pageTitle='Portfolio Grid - 02 Columns' />
+            <SEO pageTitle='Nos Réalisations' />
             <HeaderTwo />
-            <BreadCrumb title="02 Columns" innerTitle="Portfolio Grid" />
+            <BreadCrumb title="Nos Réalisations" innerTitle="Nos Réalisations" />
             <TwoColumns />        
             <FooterTwo />    
             <ScrollToTop />      
