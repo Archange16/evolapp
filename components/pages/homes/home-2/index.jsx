@@ -14,6 +14,7 @@ import BlogTwo from "./blog";
 import FooterTwo from "@/components/layout/footers/footer-two";
 import ScrollToTop from "../../common/scroll/scroll-to-top";
 import Pricing from "../home/pricing";
+import WhatsappLive from "@/components/layout/footers/whatsappLive";
 
 const HomeTwo = () => {
     return (
@@ -32,6 +33,7 @@ const HomeTwo = () => {
             <TestimonialTwo />
             <BlogTwo />
             <FooterTwo />
+            <WhatsappLive />
             <ScrollToTop />  
         </>
     );
