@@ -7,17 +7,19 @@ import Testimonial from "../../homes/home/testimonial";
 import ScrollToTop from "../../common/scroll/scroll-to-top";
 import HeaderTwo from "@/components/layout/headers/header/header-two";
 import FooterTwo from "@/components/layout/footers/footer-two";
+import WhatsappLive from "@/components/layout/footers/whatsappLive";
 
 const ServicePage = () => {
     return (
         <>
-            <SEO pageTitle="Our Services" />
+            <SEO pageTitle="Nos services" />
             <HeaderTwo />
-            <BreadCrumb title="Our Services" innerTitle="Our Services" />
+            <BreadCrumb title="Nos services" innerTitle="Nos services" />
             <ServicesMain />
             <WorkArea />
             <Testimonial />
             <FooterTwo />
+            <WhatsappLive />
             <ScrollToTop />
         </>
     );

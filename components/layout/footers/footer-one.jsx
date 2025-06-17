@@ -5,6 +5,8 @@ import ctaBg from "../../../public/assets/img/subscribe/subscribe-one-shape-1.pn
 import footerBg from "../../../public/assets/img/shape/footer-two-bg.png";
 import servicesData from "@/components/data/services-data";
 
+import WhatsappLive from "@/components/layout/footers/whatsappLive";
+
 const FooterOne = () => {
     return (
         <>
@@ -106,6 +108,7 @@ const FooterOne = () => {
 				</div>
 			</div>
 		</div>
+		<WhatsappLive />
         </>
     );
 };

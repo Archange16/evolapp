@@ -10,13 +10,14 @@ const WorkArea = () => {
                 <div className="row align-items-end work-process-area__one-title">
                     <div className="col-xl-7 col-lg-7">
                         <div className="work-process-area__one-content-left">
-                            <span className="subtitle-one">Work Process</span>
-                            <h2>Sustainable and Responsible Computing</h2>
+                            <span className="subtitle-one">Processus de travail</span>
+                            <h2>Informatique durable et responsable</h2>
                         </div>
                     </div>
                     <div className="col-xl-4 offset-xl-1 col-lg-4 offset-lg-1">
                         <div className="work-process-area__one-content-right">
-                            <p>Discuss strategies for reducing energy consumption in data centers, personal devices, and reduce power usage</p>
+                            <p>On développe pour vous un site web, une application mobile, un logo, avec IA et marketing digital pour optimiser l’expérience utilisateur et la visibilité en ligne.
+</p>
                         </div>
                     </div>
                 </div>
@@ -25,22 +26,22 @@ const WorkArea = () => {
                         <div className="work-process-area__one-single-work">
                             <span>01</span>
                             <div className="work-process-area__one-single-work-content">
-                                <h4>Assess Requirements Precisely</h4>
-                                <p>Begin by comprehensively understanding your business needs to ensure a perfect fit for tech solutions.</p>
+                                <h4>Évaluer les besoins avec précision</h4>
+                                <p>Commencez par comprendre de manière exhaustive les besoins de votre entreprise pour garantir une adéquation parfaite aux solutions technologiques.</p>
                             </div>
                         </div>
                         <div className="work-process-area__one-single-work">
                             <span>02</span>
                             <div className="work-process-area__one-single-work-content">
-                                <h4>Develop Custom Solutions</h4>
-                                <p>Engage in crafting tailor-made software designed meticulously to align with your specific targets.</p>
+                                <h4>Développer des solutions personnalisées</h4>
+                                <p>Participez à la création de logiciels sur mesure conçus méticuleusement pour s'aligner sur vos objectifs spécifiques.</p>
                             </div>
                         </div>
                         <div className="work-process-area__one-single-work">
                             <span>03</span>
                             <div className="work-process-area__one-single-work-content">
-                                <h4>Implement and Support</h4>
-                                <p>Seamlessly integrate the new systems into framework with ongoing support for continual optimization.</p>
+                                <h4>Mise en œuvre et support</h4>
+                                <p>Intégrer de manière transparente les nouveaux systèmes dans le cadre avec un support continu pour une optimisation continue.</p>
                             </div>
                         </div>
                     </div>
@@ -54,7 +55,7 @@ const WorkArea = () => {
                                     <h2 className="counter"><Count number={20}/></h2>
                                     <h2>+</h2>
                                 </div>
-                                <span>years of experiences</span>
+                                <span>années d'expériences</span>
                             </div>
                             <img src={image2.src} alt="image" />
                         </div>

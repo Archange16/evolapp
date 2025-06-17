@@ -5,6 +5,7 @@ import ScrollToTop from "../common/scroll/scroll-to-top";
 import FormArea from "./form";
 import FooterTwo from "@/components/layout/footers/footer-two";
 import HeaderTwo from "@/components/layout/headers/header/header-two";
+import WhatsappLive from "@/components/layout/footers/whatsappLive";
 
 const ContactUs = () => {
     return (
@@ -74,6 +75,7 @@ const ContactUs = () => {
                 </div>
             </div>
             <FooterTwo />
+            <WhatsappLive />
             <ScrollToTop />
         </>
     );
