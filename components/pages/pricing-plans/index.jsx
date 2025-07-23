@@ -13,8 +13,9 @@ const PricingPages = () => {
             <HeaderTwo />
             <BreadCrumb title='Pricing Plan' innerTitle='Pricing Plan' />
             <PricingPlansMain />
+             
             <FooterTwo />    
-            <ScrollToTop />
+            <ScrollToTop />{/**/ }
         </>
     );
 };
