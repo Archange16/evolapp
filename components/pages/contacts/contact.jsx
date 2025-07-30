@@ -36,8 +36,8 @@ const ContactUs = () => {
                                     </div>
                                     <div className="contact__two-single-info-content">
                                         <h4>Email</h4>
-                                        <span>contact@digital-expert.cg</span>
-                                        <span>support@digital-expert.cg</span>
+                                        <span>contact@evolapp.com</span>
+                                        <span>evolapp10@dgmail.com</span>
                                     </div>
                                 </div>
                                 <div className="contact__two-single-info">
@@ -46,8 +46,8 @@ const ContactUs = () => {
                                     </div>
                                     <div className="contact__two-single-info-content">
                                         <h4>Téléphone</h4>
-                                        <span>+242 06 123 4567</span>
-                                        <span>+242 05 987 6543</span>
+                                        <span>(+212) 06 4781 0243</span>
+                                        <span>(+212) 06 4909 6978</span>
                                     </div>
                                 </div>
                                 <div className="contact__two-single-info">
@@ -56,7 +56,7 @@ const ContactUs = () => {
                                     </div>
                                     <div className="contact__two-single-info-content">
                                         <h4>Disponibilité</h4>
-                                        <span>Lundi - Vendredi : 9h00 - 17h00</span>
+                                        <span>Lundi - Vendredi : 9h00 - 18h00</span>
                                         <span>Samedi : 10h00 - 14h00</span>
                                     </div>
                                 </div>
@@ -66,7 +66,7 @@ const ContactUs = () => {
                                     </div>
                                     <div className="contact__two-single-info-content">
                                         <h4>Adresse</h4>
-                                        <span>Centre-ville, Brazzaville, République du Congo</span>
+                                        <span>Maroc, Sidi Ghanem À Côté De L'immeuble D'EBF Marrakech</span>
                                     </div>    
                                 </div>
                             </div>
