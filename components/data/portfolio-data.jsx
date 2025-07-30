@@ -32,7 +32,7 @@ const portfolioData = [
     },
     {        
         id: 'it-success-stories',
-        title: 'Histoires De Réussite Informatique',
+        title: 'Histoires Du succès Informatique',
         subtitle: 'Intégration De Systèmes',
         image: image5,        
     },
