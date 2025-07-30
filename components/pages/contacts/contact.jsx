@@ -37,7 +37,7 @@ const ContactUs = () => {
                                     <div className="contact__two-single-info-content">
                                         <h4>Email</h4>
                                         <span>contact@evolapp.com</span>
-                                        <span>evolapp10@dgmail.com</span>
+                                        <span>evolapp10@gmail.com</span>
                                     </div>
                                 </div>
                                 <div className="contact__two-single-info">
