@@ -41,7 +41,7 @@ const RequestQuoteMain = () => {
         e.preventDefault();
 
         try {
-            const res = await fetch('/api/quote', {
+            const res = await fetch('/api/devis', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
