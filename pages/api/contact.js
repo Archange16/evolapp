@@ -30,7 +30,7 @@ export default async function handler(req, res) {
       from: process.env.SMTP_USER,
       to: process.env.SMTP_TO,
       replyTo: email,
-      subject: subject || 'Nouveau message de formulaire',
+      subject: subject || 'Nouveau message de formulaire de contact',
       html: `
         <h3>Nouvelle demande de contact</h3>
         <p><strong>Nom :</strong> ${name}</p>
