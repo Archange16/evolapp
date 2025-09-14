@@ -4,6 +4,7 @@ import logo from "../../../public/assets/img/logo-2.png";
 import ctaBg from "../../../public/assets/img/subscribe/subscribe-two-shape-2.png";
 import footerBg from "../../../public/assets/img/shape/footer-bg.png";
 import servicesData from "@/components/data/services-data";
+import React, { useState } from 'react';
 
 const FooterTwo = () => {
     const [email, setEmail] = useState('');
