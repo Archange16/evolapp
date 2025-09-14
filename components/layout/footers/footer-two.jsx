@@ -6,6 +6,40 @@ import footerBg from "../../../public/assets/img/shape/footer-bg.png";
 import servicesData from "@/components/data/services-data";
 
 const FooterTwo = () => {
+    const [email, setEmail] = useState('');
+    const [success, setSuccess] = useState('');
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
+
+    const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSuccess('');
+    setError('');
+    setLoading(true);
+
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setSuccess("Merci ! Votre e-mail a bien été enregistré.");
+        setEmail('');
+      } else {
+        setError(data.message || "Erreur lors de l'envoi.");
+      }
+    } catch (err) {
+      console.error(err);
+      setError("Erreur réseau.");
+    } finally {
+      setLoading(false);
+    }
+  };
+  
     return (
         <>
         <div className="subscribe__one two">
@@ -95,9 +129,20 @@ const FooterTwo = () => {
                             <h4>Newsletter</h4>
                             <div className="footer__one-widget-subscribe">
                                 <p>Restez informé des dernières innovations en solutions digitales, architecture et technologies de paiement.</p>
-                                <form action="#">
-                                    <input type="text" name="email" placeholder="Votre e-mail" required="" />
-                                    <button type="submit"><i className="fas fa-paper-plane"></i></button>
+                                <form onSubmit={handleSubmit}>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Votre e-mail"
+                                    required
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                                <button type="submit" disabled={loading}>
+                                    <i className="fas fa-paper-plane"></i>
+                                </button>
+                                {success && <p style={{ color: "green" }}>{success}</p>}
+                                {error && <p style={{ color: "red" }}>{error}</p>}
                                 </form>
                             </div>
                         </div>
