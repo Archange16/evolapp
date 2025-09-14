@@ -14,32 +14,29 @@ const FooterTwo = () => {
 
     const handleSubmit = async (e) => {
     e.preventDefault();
-    setSuccess('');
     setError('');
-    setLoading(true);
-
+    setSuccess('');
     try {
-      const res = await fetch('/api/newsletter', {
+        const res = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
-      });
+        });
 
-      const data = await res.json();
+        const data = await res.json();
 
-      if (res.ok) {
-        setSuccess("Merci ! Votre e-mail a bien été enregistré.");
+        if (res.ok) {
+        setSuccess('Merci ! Votre e-mail a été envoyé avec succès.');
         setEmail('');
-      } else {
-        setError(data.message || "Erreur lors de l'envoi.");
-      }
+        } else {
+        setError(data.message || 'Erreur lors de l’envoi.');
+        }
     } catch (err) {
-      console.error(err);
-      setError("Erreur réseau.");
-    } finally {
-      setLoading(false);
+        console.error(err);
+        setError('Erreur réseau.');
     }
-  };
+    };
+
   
     return (
         <>

@@ -1,6 +1,8 @@
 // pages/api/newsletter.js
 
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -14,29 +16,19 @@ export default async function handler(req, res) {
   }
 
   try {
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
+    const data = await resend.emails.send({
+      from: 'onboarding@resend.dev', // par défaut (ou remplace avec ton domaine validé)
+      to: 'evolapp10@gmail.com',
+      subject: 'Nouvel inscrit à la newsletter',
+      html: `<p>Un nouvel utilisateur a soumis son email : <strong>${email}</strong></p>`,
     });
 
-    const mailOptions = {
-      from: `"Newsletter" <${process.env.SMTP_USER}>`,
-      to: 'evolapp10@gmail.com',
-      subject: 'Nouvel abonnement à la newsletter',
-      html: `
-        <h2>Nouvel e-mail abonné</h2>
-        <p><strong>E-mail :</strong> ${email}</p>
-      `,
-    };
-
-    await transporter.sendMail(mailOptions);
-
-    return res.status(200).json({ message: 'Email envoyé avec succès.' });
+    return res.status(200).json({ message: 'Email envoyé avec succès via Resend.' });
   } catch (error) {
-    console.error('Erreur newsletter :', error);
-    return res.status(500).json({ message: "Erreur serveur lors de l’envoi." });
+    console.error('Erreur Resend :', error);
+    return res.status(500).json({
+      message: 'Erreur Resend lors de l’envoi.',
+      error: error.toString(),
+    });
   }
 }
