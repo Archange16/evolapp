@@ -11,13 +11,12 @@ const WorkArea = () => {
                     <div className="col-xl-7 col-lg-7">
                         <div className="work-process-area__one-content-left">
                             <span className="subtitle-one">Processus de travail</span>
-                            <h2>Informatique durable et responsable</h2>
+                            <h2>Solutions digitales innovantes et performantes</h2>
                         </div>
                     </div>
                     <div className="col-xl-4 offset-xl-1 col-lg-4 offset-lg-1">
                         <div className="work-process-area__one-content-right">
-                            <p>On développe pour vous un site web, une application mobile, un logo, avec IA et marketing digital pour optimiser l’expérience utilisateur et la visibilité en ligne.
-</p>
+                            <p>Nous développons pour vous des sites web, applications mobiles, identités visuelles, solutions IA et stratégies marketing digital pour optimiser l'expérience utilisateur et maximiser votre visibilité en ligne.</p>
                         </div>
                     </div>
                 </div>
@@ -26,22 +25,22 @@ const WorkArea = () => {
                         <div className="work-process-area__one-single-work">
                             <span>01</span>
                             <div className="work-process-area__one-single-work-content">
-                                <h4>Évaluer les besoins avec précision</h4>
-                                <p>Commencez par comprendre de manière exhaustive les besoins de votre entreprise pour garantir une adéquation parfaite aux solutions technologiques.</p>
+                                <h4>Analyse approfondie de vos besoins</h4>
+                                <p>Nous analysons en détail vos besoins, vos objectifs et votre secteur d'activité pour concevoir une solution technologique parfaitement adaptée à votre contexte.</p>
                             </div>
                         </div>
                         <div className="work-process-area__one-single-work">
                             <span>02</span>
                             <div className="work-process-area__one-single-work-content">
-                                <h4>Développer des solutions personnalisées</h4>
-                                <p>Participez à la création de logiciels sur mesure conçus méticuleusement pour s'aligner sur vos objectifs spécifiques.</p>
+                                <h4>Développement de solutions sur mesure</h4>
+                                <p>Nous créons des solutions digitales personnalisées, conçues avec soin pour répondre précisément à vos objectifs et vous offrir un avantage concurrentiel.</p>
                             </div>
                         </div>
                         <div className="work-process-area__one-single-work">
                             <span>03</span>
                             <div className="work-process-area__one-single-work-content">
-                                <h4>Mise en œuvre et support</h4>
-                                <p>Intégrer de manière transparente les nouveaux systèmes dans le cadre avec un support continu pour une optimisation continue.</p>
+                                <h4>Déploiement et accompagnement continu</h4>
+                                <p>Nous assurons le déploiement de vos solutions avec un accompagnement personnalisé et un support continu pour garantir leur performance optimale.</p>
                             </div>
                         </div>
                     </div>

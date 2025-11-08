@@ -73,7 +73,7 @@ const FooterTwo = () => {
                         <div className="footer__one-widget">
                             <div className="footer__one-widget-about">
                                 <Link href="/"><img src={logo.src} alt="Logo" /></Link>
-                                <p>Nous transformons les entreprises grâce à des solutions digitales innovantes, des systèmes de paiement et des conseils en architecture et immobilier.</p>
+                                <p>Nous transformons les entreprises grâce à des solutions digitales innovantes : développement web et mobile, design graphique, marketing digital, intelligence artificielle et développement d'APIs.</p>
                                 <div className="footer__one-widget-about-social">
                                     <h4>Suivez-nous</h4>
                                     <Social />
@@ -126,7 +126,7 @@ const FooterTwo = () => {
                         <div className="footer__one-widget border-one tow">
                             <h4>Newsletter</h4>
                             <div className="footer__one-widget-subscribe">
-                                <p>Restez informé des dernières innovations en solutions digitales, architecture et technologies de paiement.</p>
+                                <p>Restez informé des dernières innovations en développement web, applications mobiles, design UX/UI, marketing digital et intelligence artificielle.</p>
                                 <form onSubmit={handleSubmit}>
                                 <input
                                     type="email"

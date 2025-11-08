@@ -54,10 +54,10 @@ const TestimonialTwo = () => {
                                             <div className="single-slider-user">
                                                 <div className="single-slider-user-name">
                                                     <h4>Alexandre M.</h4>
-                                                    <span>Directeur Technique</span>
+                                                    <span>Directeur Marketing</span>
                                                 </div>
                                             </div>
-                                            <p>“Le service de conseil en stratégie IT nous a permis de rationaliser nos processus internes et d'améliorer la gestion de nos données. Une solution sur mesure qui a réellement fait la différence.”</p>
+                                            <p>"La création de notre site web par Evolapp a été un véritable succès. Le design est moderne, la navigation est fluide, et nous avons observé une augmentation significative du trafic et des conversions."</p>
                                             <div className="single-slider-user-rating mt-30">
                                                 <i className="fas fa-star"></i>
                                                 <i className="fas fa-star"></i>
@@ -72,10 +72,10 @@ const TestimonialTwo = () => {
                                             <div className="single-slider-user">
                                                 <div className="single-slider-user-name">
                                                     <h4>Sarah K.</h4>
-                                                    <span>Chef de Projet Digital</span>
+                                                    <span>Fondatrice Startup</span>
                                                 </div>
                                             </div>
-                                            <p>“La création de notre site web par l'équipe a été un véritable succès. Le design est moderne, la navigation est fluide, et nous avons observé une augmentation significative du trafic.”</p>
+                                            <p>"L'application mobile développée par Evolapp a transformé notre relation avec nos clients. L'interface est intuitive, les performances sont excellentes, et nos utilisateurs sont ravis."</p>
                                             <div className="single-slider-user-rating mt-30">
                                                 <i className="fas fa-star"></i>
                                                 <i className="fas fa-star"></i>
@@ -90,10 +90,10 @@ const TestimonialTwo = () => {
                                             <div className="single-slider-user">
                                                 <div className="single-slider-user-name">
                                                     <h4>Jean P.</h4>
-                                                    <span>Responsable Support IT</span>
+                                                    <span>Directeur Général</span>
                                                 </div>
                                             </div>
-                                            <p>“Le support IT que nous avons reçu a été au-delà de nos attentes. Grâce à leur réactivité, nos systèmes sont toujours performants et sécurisés.”</p>
+                                            <p>"L'intégration d'APIs et de solutions IA dans notre système a considérablement amélioré notre efficacité opérationnelle. L'équipe Evolapp est professionnelle et réactive."</p>
                                             <div className="single-slider-user-rating mt-30">
                                                 <i className="fas fa-star"></i>
                                                 <i className="fas fa-star"></i>

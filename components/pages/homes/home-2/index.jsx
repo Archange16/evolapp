@@ -19,7 +19,7 @@ import WhatsappLive from "@/components/layout/footers/whatsappLive";
 const HomeTwo = () => {
     return (
         <>
-            <SEO pageTitle="IT Consulting" />
+            <SEO pageTitle="Accueil - Solutions Digitales" />
             <HeaderTwo  />
             <BannerTwo />
             <AboutTwo />

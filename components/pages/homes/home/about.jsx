@@ -69,7 +69,7 @@ const About = () => {
                                         <h4 className="counter"><Count number={25}/></h4>
                                         <span>+</span>
                                     </div>
-                                    <span>Years Experience</span>
+                                    <span>Années d'expérience</span>
                                 </div>
                             </div>
                             <div className="about__one-image-wrapper">
@@ -80,28 +80,28 @@ const About = () => {
                     </div>
                     <div className="col-xl-6 col-lg-7 col-md-9">
                         <div className="about__one-content">
-                            <span className="subtitle-one">About us</span>
-                            <h2>Transform Business to Technology</h2>
-                            <p>IT Technology is a broad category encompassing all aspec information technology and the application of technology in various industries. It includes areas such as software development</p>
+                            <span className="subtitle-one">À propos de nous</span>
+                            <h2>Transformez votre entreprise avec la technologie</h2>
+                            <p>Nous accompagnons les entreprises dans leur transformation digitale grâce à des solutions sur mesure : développement web et mobile, design graphique, marketing digital, intelligence artificielle et développement d'APIs.</p>
                             <div className="about__one-content-service">
                                 <div className="service">
                                     <i className="far fa-check-circle"></i>
-                                    <span>Data Management Experts</span>
+                                    <span>Développement Web & Mobile</span>
                                 </div>
                                 <div className="service">
                                     <i className="far fa-check-circle"></i>
-                                    <span>Mobile App Developments</span>
+                                    <span>Design UX/UI & Graphique</span>
                                 </div>
                                 <div className="service">
                                     <i className="far fa-check-circle"></i>
-                                    <span>IT Infrastructure Solutions</span>
+                                    <span>Marketing Digital & SEO</span>
                                 </div>
                                 <div className="service">
                                     <i className="far fa-check-circle"></i>
-                                    <span>Data Analytics Consulting</span>
+                                    <span>Intelligence Artificielle & APIs</span>
                                 </div>
                             </div>
-                            <Link href="/about" className="btn-one">Discover More<i className="fas fa-arrow-right"></i></Link>
+                            <Link href="/about" className="btn-one">En savoir plus<i className="fas fa-arrow-right"></i></Link>
                         </div>
                     </div>
                 </div>

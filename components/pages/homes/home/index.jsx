@@ -16,7 +16,7 @@ import FooterTwo from "@/components/layout/footers/footer-two";
 const HomeOne = () => {
     return (
         <div>
-            <SEO pageTitle='Technology' />
+            <SEO pageTitle='Accueil - Solutions Digitales' />
             <HeaderTwo />
             <BannerOne />
             <About />
