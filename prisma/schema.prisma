@@ -1,0 +1,61 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Table pour les contacts depuis la page d'accueil
+model ContactAccueil {
+  id        String   @id @default(uuid())
+  firstName String   @map("first_name")
+  phone     String
+  email     String
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("contact_accueil")
+}
+
+// Table pour les contacts depuis la page contact complète
+model Contact {
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  phone     String
+  subject   String?
+  message   String
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("contact")
+}
+
+// Table pour les demandes de devis
+model Devis {
+  id        String   @id @default(uuid())
+  firstName String   @map("first_name")
+  lastName  String   @map("last_name")
+  email     String
+  phone     String
+  company   String?
+  website   String?
+  services  String[] // Array de services sélectionnés
+  message   String
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("devis")
+}
+
+// Table pour les inscriptions à la newsletter
+model Newsletter {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("newsletter")
+}
+

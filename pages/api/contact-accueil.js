@@ -1,5 +1,6 @@
 // pages/api/contact-accueil.js
 
+import prisma from '../../lib/prisma';
 import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
@@ -14,32 +15,51 @@ export default async function handler(req, res) {
   }
 
   try {
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+    // Sauvegarde dans la base de données Supabase via Prisma
+    const contact = await prisma.contactAccueil.create({
+      data: {
+        firstName,
+        phone,
+        email,
       },
     });
 
-    const mailOptions = {
-      from: `"${firstName}" <${email}>`,
-      to: 'evolapp10@gmail.com',
-      subject: 'Nouveau message depuis la page d’accueil',
-      html: `
-        <h2>Nouveau message de contact</h2>
-        <p><strong>Prénom :</strong> ${firstName}</p>
-        <p><strong>Téléphone :</strong> ${phone}</p>
-        <p><strong>Email :</strong> ${email}</p>
-      `,
-    };
+    // Envoi d'email (optionnel - si SMTP est configuré)
+    if (process.env.SMTP_USER && process.env.SMTP_PASS) {
+      try {
+        const transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASS,
+          },
+        });
 
-    await transporter.sendMail(mailOptions);
+        const mailOptions = {
+          from: `"${firstName}" <${email}>`,
+          to: 'evolapp10@gmail.com',
+          subject: 'Nouveau message depuis la page d\'accueil',
+          html: `
+            <h2>Nouveau message de contact</h2>
+            <p><strong>Prénom :</strong> ${firstName}</p>
+            <p><strong>Téléphone :</strong> ${phone}</p>
+            <p><strong>Email :</strong> ${email}</p>
+          `,
+        };
 
-    return res.status(200).json({ message: 'Email envoyé avec succès.' });
+        await transporter.sendMail(mailOptions);
+      } catch (emailError) {
+        console.error('Erreur d\'envoi email (non bloquant):', emailError);
+      }
+    }
+
+    return res.status(200).json({ 
+      message: 'Message enregistré avec succès.',
+      id: contact.id 
+    });
 
   } catch (error) {
-    console.error('Erreur d’envoi :', error);
-    return res.status(500).json({ message: 'Erreur serveur lors de l’envoi de l’email.' });
+    console.error('Erreur de sauvegarde :', error);
+    return res.status(500).json({ message: 'Erreur serveur lors de la sauvegarde.' });
   }
 }
