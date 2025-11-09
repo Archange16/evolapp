@@ -7,12 +7,14 @@ import logo1 from "../../../../public/assets/img/logo-1.png";
 import logo2 from "../../../../public/assets/img/logo-2.png";
 import MobileMenuPopup from '../mobile-menu/menu-area';
 import Link from 'next/link';
+import { checkAuth } from '@/lib/auth';
 
 const HeaderTwo = ({variant}) => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [menuSidebar, setMenuSidebar] = useState(false);
     const [search, setSearch] = useState(false);
     const [isSticky, setIsSticky] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
@@ -21,6 +23,11 @@ const HeaderTwo = ({variant}) => {
             } else {
                 setIsSticky(false);
             }
+        });
+
+        // Vérifier l'état d'authentification
+        checkAuth().then((authenticated) => {
+            setIsAuthenticated(authenticated);
         });
     }, []);
 
@@ -42,6 +49,35 @@ const HeaderTwo = ({variant}) => {
                                 <Link href="mailto:contact@evolapp.com">
                                     <i className="fas fa-envelope"></i>contact@evolapp.com
                                 </Link>
+                                {isAuthenticated ? (
+                                    <Link href="/admin" style={{ 
+                                        marginLeft: '15px',
+                                        padding: '5px 12px',
+                                        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                                        color: 'white',
+                                        borderRadius: '4px',
+                                        textDecoration: 'none',
+                                        fontSize: '14px',
+                                        fontWeight: '500',
+                                        transition: 'all 0.3s ease'
+                                    }}>
+                                        <i className="fas fa-user-shield"></i> Admin
+                                    </Link>
+                                ) : (
+                                    <Link href="/admin/login" style={{ 
+                                        marginLeft: '15px',
+                                        padding: '5px 12px',
+                                        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                                        color: 'white',
+                                        borderRadius: '4px',
+                                        textDecoration: 'none',
+                                        fontSize: '14px',
+                                        fontWeight: '500',
+                                        transition: 'all 0.3s ease'
+                                    }}>
+                                        <i className="fas fa-sign-in-alt"></i> Connexion
+                                    </Link>
+                                )}
                             </div>
                         </div>
                     </div>

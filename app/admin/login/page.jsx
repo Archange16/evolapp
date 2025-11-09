@@ -11,6 +11,19 @@ const LoginPage = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [checking, setChecking] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+      setIsTablet(window.innerWidth >= 768 && window.innerWidth < 1024);
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
   useEffect(() => {
     // Vérifier si déjà connecté
@@ -58,17 +71,19 @@ const LoginPage = () => {
       alignItems: 'center', 
       minHeight: '100vh',
       background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      padding: '20px'
+      padding: '20px',
+      boxSizing: 'border-box'
     }}>
       <div style={{
         backgroundColor: 'white',
-        padding: '50px 40px',
+        padding: isMobile ? '30px 20px' : isTablet ? '40px 30px' : '50px 40px',
         borderRadius: '16px',
         boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
         width: '100%',
         maxWidth: '450px',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        boxSizing: 'border-box'
       }}>
         {/* Decorative elements */}
         <div style={{
@@ -111,7 +126,7 @@ const LoginPage = () => {
             <h1 style={{ 
               margin: 0, 
               color: '#1a1a1a',
-              fontSize: '28px',
+              fontSize: isMobile ? '22px' : '28px',
               fontWeight: '700',
               marginBottom: '8px'
             }}>
@@ -119,7 +134,7 @@ const LoginPage = () => {
             </h1>
             <p style={{ 
               color: '#666',
-              fontSize: '14px',
+              fontSize: isMobile ? '12px' : '14px',
               margin: 0
             }}>
               Connectez-vous pour accéder au tableau de bord
@@ -269,22 +284,26 @@ const LoginPage = () => {
 
             {/* Comptes de démonstration */}
             <div style={{
-              marginTop: '30px',
-              padding: '20px',
+              marginTop: isMobile ? '20px' : '30px',
+              padding: isMobile ? '15px' : '20px',
               backgroundColor: '#f8f9fa',
               borderRadius: '8px',
               border: '1px solid #e0e0e0'
             }}>
               <p style={{ 
                 margin: '0 0 12px 0', 
-                fontSize: '13px', 
+                fontSize: isMobile ? '12px' : '13px', 
                 color: '#666',
                 fontWeight: '600'
               }}>
                 <i className="fas fa-info-circle" style={{ marginRight: '6px', color: '#667eea' }}></i>
                 Comptes de démonstration :
               </p>
-              <div style={{ fontSize: '12px', color: '#555', lineHeight: '1.8' }}>
+              <div style={{ 
+                fontSize: isMobile ? '11px' : '12px', 
+                color: '#555', 
+                lineHeight: '1.8' 
+              }}>
                 <div><strong>Admin:</strong> admin / admin123</div>
                 <div><strong>Demo:</strong> demo / demo123</div>
               </div>

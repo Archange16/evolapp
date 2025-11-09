@@ -9,6 +9,8 @@ const AdminPage = () => {
   const [authenticated, setAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('contacts-accueil');
+  const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
   
   // Données
   const [contactsAccueil, setContactsAccueil] = useState([]);
@@ -23,6 +25,17 @@ const AdminPage = () => {
     devis: 0,
     newsletter: 0
   });
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+      setIsTablet(window.innerWidth >= 768 && window.innerWidth < 1024);
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
   useEffect(() => {
     // Vérifier l'authentification
@@ -130,37 +143,63 @@ const AdminPage = () => {
       {/* Header */}
       <div style={{
         background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        padding: '24px 0',
+        padding: isMobile ? '16px 0' : '24px 0',
         boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-        marginBottom: '30px'
+        marginBottom: isMobile ? '20px' : '30px'
       }}>
-        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ 
+          maxWidth: '1400px', 
+          margin: '0 auto', 
+          padding: isMobile ? '0 15px' : '0 20px', 
+          display: 'flex', 
+          flexDirection: isMobile ? 'column' : 'row',
+          justifyContent: 'space-between', 
+          alignItems: isMobile ? 'flex-start' : 'center',
+          gap: isMobile ? '16px' : '0'
+        }}>
           <div>
-            <h1 style={{ margin: 0, color: 'white', fontSize: '28px', fontWeight: '700', marginBottom: '4px' }}>
-              <i className="fas fa-tachometer-alt" style={{ marginRight: '12px' }}></i>
+            <h1 style={{ 
+              margin: 0, 
+              color: 'white', 
+              fontSize: isMobile ? '20px' : isTablet ? '24px' : '28px', 
+              fontWeight: '700', 
+              marginBottom: '4px' 
+            }}>
+              <i className="fas fa-tachometer-alt" style={{ marginRight: isMobile ? '8px' : '12px' }}></i>
               Administration Evolapp
             </h1>
-            <p style={{ margin: 0, color: 'rgba(255,255,255,0.9)', fontSize: '14px' }}>
+            <p style={{ 
+              margin: 0, 
+              color: 'rgba(255,255,255,0.9)', 
+              fontSize: isMobile ? '12px' : '14px' 
+            }}>
               Tableau de bord des formulaires
             </p>
           </div>
-          <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+          <div style={{ 
+            display: 'flex', 
+            gap: isMobile ? '8px' : '12px', 
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            width: isMobile ? '100%' : 'auto'
+          }}>
             <button
               onClick={handleRefresh}
               disabled={dataLoading}
               style={{
-                padding: '10px 20px',
+                padding: isMobile ? '8px 16px' : '10px 20px',
                 backgroundColor: 'rgba(255,255,255,0.2)',
                 color: 'white',
                 border: '1px solid rgba(255,255,255,0.3)',
                 borderRadius: '8px',
                 cursor: 'pointer',
-                fontSize: '14px',
+                fontSize: isMobile ? '12px' : '14px',
                 fontWeight: '600',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
-                transition: 'all 0.3s ease'
+                transition: 'all 0.3s ease',
+                flex: isMobile ? '1' : 'none'
               }}
               onMouseEnter={(e) => {
                 e.target.style.backgroundColor = 'rgba(255,255,255,0.3)';
@@ -175,19 +214,20 @@ const AdminPage = () => {
             <button
               onClick={handleLogout}
               style={{
-                padding: '10px 20px',
+                padding: isMobile ? '8px 16px' : '10px 20px',
                 backgroundColor: 'rgba(220, 53, 69, 0.9)',
                 color: 'white',
                 border: 'none',
                 borderRadius: '8px',
                 cursor: 'pointer',
-                fontSize: '14px',
+                fontSize: isMobile ? '12px' : '14px',
                 fontWeight: '600',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
                 transition: 'all 0.3s ease',
-                boxShadow: '0 2px 10px rgba(220, 53, 69, 0.3)'
+                boxShadow: '0 2px 10px rgba(220, 53, 69, 0.3)',
+                flex: isMobile ? '1' : 'none'
               }}
               onMouseEnter={(e) => {
                 e.target.style.backgroundColor = 'rgba(220, 53, 69, 1)';
@@ -205,90 +245,133 @@ const AdminPage = () => {
         </div>
       </div>
 
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 20px 40px' }}>
+      <div style={{ 
+        maxWidth: '1400px', 
+        margin: '0 auto', 
+        padding: isMobile ? '0 15px 30px' : '0 20px 40px' 
+      }}>
         {/* Statistiques */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-          gap: '20px',
-          marginBottom: '30px'
+          gridTemplateColumns: isMobile 
+            ? '1fr' 
+            : isTablet 
+            ? 'repeat(2, 1fr)' 
+            : 'repeat(auto-fit, minmax(200px, 1fr))',
+          gap: isMobile ? '12px' : '20px',
+          marginBottom: isMobile ? '20px' : '30px'
         }}>
           <div style={{
           background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-          padding: '24px',
+          padding: isMobile ? '16px' : '24px',
           borderRadius: '12px',
           color: 'white',
           boxShadow: '0 4px 15px rgba(102, 126, 234, 0.3)'
         }}>
-            <div style={{ fontSize: '14px', opacity: 0.9, marginBottom: '8px' }}>
+            <div style={{ 
+              fontSize: isMobile ? '12px' : '14px', 
+              opacity: 0.9, 
+              marginBottom: '8px' 
+            }}>
               <i className="fas fa-chart-line" style={{ marginRight: '8px' }}></i>
               Total
             </div>
-            <div style={{ fontSize: '32px', fontWeight: '700' }}>
+            <div style={{ 
+              fontSize: isMobile ? '24px' : isTablet ? '28px' : '32px', 
+              fontWeight: '700' 
+            }}>
               {stats.total}
             </div>
           </div>
 
           <div style={{
             background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-            padding: '24px',
+            padding: isMobile ? '16px' : '24px',
             borderRadius: '12px',
             color: 'white',
             boxShadow: '0 4px 15px rgba(245, 87, 108, 0.3)'
           }}>
-            <div style={{ fontSize: '14px', opacity: 0.9, marginBottom: '8px' }}>
+            <div style={{ 
+              fontSize: isMobile ? '12px' : '14px', 
+              opacity: 0.9, 
+              marginBottom: '8px' 
+            }}>
               <i className="fas fa-home" style={{ marginRight: '8px' }}></i>
               Contacts Accueil
             </div>
-            <div style={{ fontSize: '32px', fontWeight: '700' }}>
+            <div style={{ 
+              fontSize: isMobile ? '24px' : isTablet ? '28px' : '32px', 
+              fontWeight: '700' 
+            }}>
               {contactsAccueil.length}
             </div>
           </div>
 
           <div style={{
             background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-            padding: '24px',
+            padding: isMobile ? '16px' : '24px',
             borderRadius: '12px',
             color: 'white',
             boxShadow: '0 4px 15px rgba(79, 172, 254, 0.3)'
           }}>
-            <div style={{ fontSize: '14px', opacity: 0.9, marginBottom: '8px' }}>
+            <div style={{ 
+              fontSize: isMobile ? '12px' : '14px', 
+              opacity: 0.9, 
+              marginBottom: '8px' 
+            }}>
               <i className="fas fa-envelope" style={{ marginRight: '8px' }}></i>
               Contacts
             </div>
-            <div style={{ fontSize: '32px', fontWeight: '700' }}>
+            <div style={{ 
+              fontSize: isMobile ? '24px' : isTablet ? '28px' : '32px', 
+              fontWeight: '700' 
+            }}>
               {contacts.length}
             </div>
           </div>
 
           <div style={{
             background: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-            padding: '24px',
+            padding: isMobile ? '16px' : '24px',
             borderRadius: '12px',
             color: 'white',
             boxShadow: '0 4px 15px rgba(67, 233, 123, 0.3)'
           }}>
-            <div style={{ fontSize: '14px', opacity: 0.9, marginBottom: '8px' }}>
+            <div style={{ 
+              fontSize: isMobile ? '12px' : '14px', 
+              opacity: 0.9, 
+              marginBottom: '8px' 
+            }}>
               <i className="fas fa-file-invoice-dollar" style={{ marginRight: '8px' }}></i>
               Devis
             </div>
-            <div style={{ fontSize: '32px', fontWeight: '700' }}>
+            <div style={{ 
+              fontSize: isMobile ? '24px' : isTablet ? '28px' : '32px', 
+              fontWeight: '700' 
+            }}>
               {devis.length}
             </div>
           </div>
 
           <div style={{
             background: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-            padding: '24px',
+            padding: isMobile ? '16px' : '24px',
             borderRadius: '12px',
             color: 'white',
             boxShadow: '0 4px 15px rgba(250, 112, 154, 0.3)'
           }}>
-            <div style={{ fontSize: '14px', opacity: 0.9, marginBottom: '8px' }}>
+            <div style={{ 
+              fontSize: isMobile ? '12px' : '14px', 
+              opacity: 0.9, 
+              marginBottom: '8px' 
+            }}>
               <i className="fas fa-newspaper" style={{ marginRight: '8px' }}></i>
               Newsletter
             </div>
-            <div style={{ fontSize: '32px', fontWeight: '700' }}>
+            <div style={{ 
+              fontSize: isMobile ? '24px' : isTablet ? '28px' : '32px', 
+              fontWeight: '700' 
+            }}>
               {newsletter.length}
             </div>
           </div>
@@ -297,18 +380,19 @@ const AdminPage = () => {
         {/* Tabs */}
         <div style={{
           display: 'flex',
-          gap: '12px',
-          marginBottom: '24px',
+          gap: isMobile ? '8px' : '12px',
+          marginBottom: isMobile ? '16px' : '24px',
           flexWrap: 'wrap',
           backgroundColor: 'white',
-          padding: '12px',
+          padding: isMobile ? '8px' : '12px',
           borderRadius: '12px',
-          boxShadow: '0 2px 10px rgba(0,0,0,0.05)'
+          boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
+          overflowX: isMobile ? 'auto' : 'visible'
         }}>
           <button
             onClick={() => setActiveTab('contacts-accueil')}
             style={{
-              padding: '12px 24px',
+              padding: isMobile ? '10px 16px' : '12px 24px',
               background: activeTab === 'contacts-accueil' 
                 ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' 
                 : '#f8f9fa',
@@ -316,22 +400,24 @@ const AdminPage = () => {
               border: 'none',
               borderRadius: '8px',
               cursor: 'pointer',
-              fontSize: '14px',
+              fontSize: isMobile ? '12px' : '14px',
               fontWeight: '600',
               transition: 'all 0.3s ease',
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
-              boxShadow: activeTab === 'contacts-accueil' ? '0 4px 15px rgba(102, 126, 234, 0.3)' : 'none'
+              boxShadow: activeTab === 'contacts-accueil' ? '0 4px 15px rgba(102, 126, 234, 0.3)' : 'none',
+              whiteSpace: 'nowrap'
             }}
           >
             <i className="fas fa-home"></i>
-            Contacts Accueil ({contactsAccueil.length})
+            <span style={{ display: isMobile ? 'none' : 'inline' }}>Contacts Accueil </span>
+            <span>({contactsAccueil.length})</span>
           </button>
           <button
             onClick={() => setActiveTab('contacts')}
             style={{
-              padding: '12px 24px',
+              padding: isMobile ? '10px 16px' : '12px 24px',
               background: activeTab === 'contacts' 
                 ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' 
                 : '#f8f9fa',
@@ -339,22 +425,24 @@ const AdminPage = () => {
               border: 'none',
               borderRadius: '8px',
               cursor: 'pointer',
-              fontSize: '14px',
+              fontSize: isMobile ? '12px' : '14px',
               fontWeight: '600',
               transition: 'all 0.3s ease',
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
-              boxShadow: activeTab === 'contacts' ? '0 4px 15px rgba(102, 126, 234, 0.3)' : 'none'
+              boxShadow: activeTab === 'contacts' ? '0 4px 15px rgba(102, 126, 234, 0.3)' : 'none',
+              whiteSpace: 'nowrap'
             }}
           >
             <i className="fas fa-envelope"></i>
-            Contacts ({contacts.length})
+            <span style={{ display: isMobile ? 'none' : 'inline' }}>Contacts </span>
+            <span>({contacts.length})</span>
           </button>
           <button
             onClick={() => setActiveTab('devis')}
             style={{
-              padding: '12px 24px',
+              padding: isMobile ? '10px 16px' : '12px 24px',
               background: activeTab === 'devis' 
                 ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' 
                 : '#f8f9fa',
@@ -362,22 +450,24 @@ const AdminPage = () => {
               border: 'none',
               borderRadius: '8px',
               cursor: 'pointer',
-              fontSize: '14px',
+              fontSize: isMobile ? '12px' : '14px',
               fontWeight: '600',
               transition: 'all 0.3s ease',
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
-              boxShadow: activeTab === 'devis' ? '0 4px 15px rgba(102, 126, 234, 0.3)' : 'none'
+              boxShadow: activeTab === 'devis' ? '0 4px 15px rgba(102, 126, 234, 0.3)' : 'none',
+              whiteSpace: 'nowrap'
             }}
           >
             <i className="fas fa-file-invoice-dollar"></i>
-            Devis ({devis.length})
+            <span style={{ display: isMobile ? 'none' : 'inline' }}>Devis </span>
+            <span>({devis.length})</span>
           </button>
           <button
             onClick={() => setActiveTab('newsletter')}
             style={{
-              padding: '12px 24px',
+              padding: isMobile ? '10px 16px' : '12px 24px',
               background: activeTab === 'newsletter' 
                 ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' 
                 : '#f8f9fa',
@@ -385,17 +475,19 @@ const AdminPage = () => {
               border: 'none',
               borderRadius: '8px',
               cursor: 'pointer',
-              fontSize: '14px',
+              fontSize: isMobile ? '12px' : '14px',
               fontWeight: '600',
               transition: 'all 0.3s ease',
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
-              boxShadow: activeTab === 'newsletter' ? '0 4px 15px rgba(102, 126, 234, 0.3)' : 'none'
+              boxShadow: activeTab === 'newsletter' ? '0 4px 15px rgba(102, 126, 234, 0.3)' : 'none',
+              whiteSpace: 'nowrap'
             }}
           >
             <i className="fas fa-newspaper"></i>
-            Newsletter ({newsletter.length})
+            <span style={{ display: isMobile ? 'none' : 'inline' }}>Newsletter </span>
+            <span>({newsletter.length})</span>
           </button>
         </div>
 
@@ -415,15 +507,28 @@ const AdminPage = () => {
           <div style={{ 
             backgroundColor: 'white', 
             borderRadius: '12px', 
-            padding: '30px', 
+            padding: isMobile ? '16px' : isTablet ? '20px' : '30px', 
             boxShadow: '0 2px 10px rgba(0,0,0,0.05)'
           }}>
             {activeTab === 'contacts-accueil' && (
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
-                  <h2 style={{ margin: 0, color: '#1a1a1a', fontSize: '24px', fontWeight: '700' }}>
+                <div style={{ 
+                  display: 'flex', 
+                  justifyContent: 'space-between', 
+                  alignItems: 'center', 
+                  marginBottom: isMobile ? '16px' : '24px',
+                  flexWrap: 'wrap',
+                  gap: '8px'
+                }}>
+                  <h2 style={{ 
+                    margin: 0, 
+                    color: '#1a1a1a', 
+                    fontSize: isMobile ? '18px' : isTablet ? '20px' : '24px', 
+                    fontWeight: '700' 
+                  }}>
                     <i className="fas fa-home" style={{ marginRight: '12px', color: '#667eea' }}></i>
-                    Contacts depuis la page d'accueil
+                    <span style={{ display: isMobile ? 'none' : 'inline' }}>Contacts depuis la page d'accueil</span>
+                    <span style={{ display: isMobile ? 'inline' : 'none' }}>Contacts Accueil</span>
                   </h2>
                 </div>
                 {contactsAccueil.length === 0 ? (
@@ -432,17 +537,45 @@ const AdminPage = () => {
                     <p style={{ fontSize: '16px', margin: 0 }}>Aucun contact pour le moment</p>
                   </div>
                 ) : (
-                  <div style={{ overflowX: 'auto' }}>
-                    <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                  <div style={{ 
+                    overflowX: 'auto',
+                    WebkitOverflowScrolling: 'touch',
+                    msOverflowStyle: '-ms-autohiding-scrollbar'
+                  }}>
+                    <table style={{ 
+                      width: '100%', 
+                      borderCollapse: 'collapse',
+                      minWidth: isMobile ? '600px' : '100%'
+                    }}>
                       <thead>
                         <tr style={{ 
                           background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                           color: 'white'
                         }}>
-                          <th style={{ padding: '16px', textAlign: 'left', fontWeight: '600', fontSize: '14px' }}>Date</th>
-                          <th style={{ padding: '16px', textAlign: 'left', fontWeight: '600', fontSize: '14px' }}>Prénom</th>
-                          <th style={{ padding: '16px', textAlign: 'left', fontWeight: '600', fontSize: '14px' }}>Email</th>
-                          <th style={{ padding: '16px', textAlign: 'left', fontWeight: '600', fontSize: '14px' }}>Téléphone</th>
+                          <th style={{ 
+                            padding: isMobile ? '12px 8px' : '16px', 
+                            textAlign: 'left', 
+                            fontWeight: '600', 
+                            fontSize: isMobile ? '12px' : '14px' 
+                          }}>Date</th>
+                          <th style={{ 
+                            padding: isMobile ? '12px 8px' : '16px', 
+                            textAlign: 'left', 
+                            fontWeight: '600', 
+                            fontSize: isMobile ? '12px' : '14px' 
+                          }}>Prénom</th>
+                          <th style={{ 
+                            padding: isMobile ? '12px 8px' : '16px', 
+                            textAlign: 'left', 
+                            fontWeight: '600', 
+                            fontSize: isMobile ? '12px' : '14px' 
+                          }}>Email</th>
+                          <th style={{ 
+                            padding: isMobile ? '12px 8px' : '16px', 
+                            textAlign: 'left', 
+                            fontWeight: '600', 
+                            fontSize: isMobile ? '12px' : '14px' 
+                          }}>Téléphone</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -461,17 +594,34 @@ const AdminPage = () => {
                               e.currentTarget.style.backgroundColor = index % 2 === 0 ? '#fff' : '#f8f9fa';
                             }}
                           >
-                            <td style={{ padding: '16px', color: '#666', fontSize: '14px' }}>
+                            <td style={{ 
+                              padding: isMobile ? '12px 8px' : '16px', 
+                              color: '#666', 
+                              fontSize: isMobile ? '12px' : '14px' 
+                            }}>
                               <i className="fas fa-calendar-alt" style={{ marginRight: '8px', color: '#667eea' }}></i>
-                              {formatDate(contact.created_at)}
+                              {isMobile ? formatDate(contact.created_at).split(' ')[0] : formatDate(contact.created_at)}
                             </td>
-                            <td style={{ padding: '16px', color: '#333', fontWeight: '500' }}>{contact.first_name}</td>
-                            <td style={{ padding: '16px', color: '#333' }}>
+                            <td style={{ 
+                              padding: isMobile ? '12px 8px' : '16px', 
+                              color: '#333', 
+                              fontWeight: '500',
+                              fontSize: isMobile ? '12px' : '14px'
+                            }}>{contact.first_name}</td>
+                            <td style={{ 
+                              padding: isMobile ? '12px 8px' : '16px', 
+                              color: '#333',
+                              fontSize: isMobile ? '12px' : '14px'
+                            }}>
                               <a href={`mailto:${contact.email}`} style={{ color: '#667eea', textDecoration: 'none' }}>
-                                {contact.email}
+                                {isMobile && contact.email.length > 20 ? contact.email.substring(0, 20) + '...' : contact.email}
                               </a>
                             </td>
-                            <td style={{ padding: '16px', color: '#333' }}>
+                            <td style={{ 
+                              padding: isMobile ? '12px 8px' : '16px', 
+                              color: '#333',
+                              fontSize: isMobile ? '12px' : '14px'
+                            }}>
                               <a href={`tel:${contact.phone}`} style={{ color: '#667eea', textDecoration: 'none' }}>
                                 {contact.phone}
                               </a>
